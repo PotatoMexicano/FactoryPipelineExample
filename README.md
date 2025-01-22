@@ -174,6 +174,3 @@ app.Run();
 - Implementar autenticação e autorização nas rotas.
 - Suporte a novas empresas sem alterar a fábrica (usar `Dictionary` ou padrão `Abstract Factory`).
 
----
-**Desenvolvido com ❤ por [Seu Nome].**
-
