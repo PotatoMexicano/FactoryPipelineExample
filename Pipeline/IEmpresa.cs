@@ -1,4 +1,4 @@
-﻿namespace Pipeline.Empresa;
+﻿namespace Pipeline.Empresa.Pipeline;
 
 public interface IEmpresa
 {

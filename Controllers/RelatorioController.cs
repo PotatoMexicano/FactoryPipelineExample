@@ -1,21 +1,15 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Pipeline.Empresa.Pipeline;
 
 namespace Pipeline.Empresa.Controllers;
-[Route("api/[controller]")]
+[Route("api/relatorio")]
 [ApiController]
-public class RelatorioController : ControllerBase
+public class RelatorioController(IEmpresaFactory empresaFactory) : ControllerBase
 {
-    private readonly IEmpresaFactory _empresaFactory;
-
-    public RelatorioController(IEmpresaFactory empresaFactory)
-    {
-        this._empresaFactory = empresaFactory;
-    }
-
     [HttpGet("{idEmpresa:int}")]
     public IActionResult GerarRelatorio(Int32 idEmpresa)
     {
-        IEmpresa empresa = _empresaFactory.GetEmpresa(idEmpresa);
+        IEmpresa empresa = empresaFactory.GetEmpresa(idEmpresa);
         List<String> result = empresa.GerarRelatorioErvas();
 
         return Ok(result);
