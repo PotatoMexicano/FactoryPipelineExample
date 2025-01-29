@@ -64,9 +64,10 @@ public class Program
 
         builder.Services.AddScoped<EmpresaA>();
         builder.Services.AddScoped<EmpresaB>();
+        builder.Services.AddScoped<EmpresaGenerica>();
         builder.Services.AddScoped<IEmpresaFactory, EmpresaFactory>();
 
-        builder.Services.AddScoped<IUserRepository, UserRepository>();
+        builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
         builder.Services.AddControllers()
             .AddJsonOptions(options =>
@@ -87,6 +88,7 @@ public class Program
 
         if (app.Environment.IsDevelopment())
         {
+            app.SeedDatabase();
             app.UseSwagger();
             app.UseSwaggerUI();
         }
